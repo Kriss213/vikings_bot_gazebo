@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+    <arg name="vikings_bot_name" default="vikings_bot"/>
+    <arg name="robot_file" default="vikings_bot.xacro"/>
+
+    <arg name="x_spawn" default="0.0"/>
+    <arg name="y_spawn" default="0.0"/>
+    <arg name="z_spawn" default="0.0"/>
+    <arg name="roll_spawn" default="0.0"/>
+    <arg name="pitch_spawn" default="0.0"/>
+    <arg name="yaw_spawn" default="0.0"/>
+
+    <include file="$(find-pkg-share vikings_bot_description)/launch/robot_state_publisher.launch.py">
+        <arg name="vikings_bot_name" value="$(var vikings_bot_name)"/>
+        <arg name="robot_file" value="$(var robot_file)"/>
+    </include>
+
+
+    <include file="$(find-pkg-share vikings_bot_gazebo)/launch/spawn_in_gazebo.launch.py">
+        <arg name="vikings_bot_name" value="$(var vikings_bot_name)"/>
+        <arg name="x_spawn" value="$(var x_spawn)"/>
+        <arg name="y_spawn" value="$(var y_spawn)"/>
+        <arg name="z_spawn" value="$(var z_spawn)"/>
+        <arg name="roll_spawn" value="$(var roll_spawn)"/>
+        <arg name="pitch_spawn" value="$(var pitch_spawn)"/>
+        <arg name="yaw_spawn" value="$(var yaw_spawn)"/>
+    </include>
+    
+
+    <include file="$(find-pkg-share vikings_bot_gazebo)/launch/static_odom_to_world.launch.py">
+        <arg name="vikings_bot_name" value="$(var vikings_bot_name)"/>
+    </include>
+
+</launch>
