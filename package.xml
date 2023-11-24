@@ -10,7 +10,7 @@
   <buildtool_depend>ament_cmake</buildtool_depend>
 
   <depend>rclpy</depend>
-  <depend>gazebo_ros</depend>
+  <depend>gazebo_ros2_control</depend>
   <depend>vikings_bot_description</depend>
 
   <test_depend>ament_lint_auto</test_depend>

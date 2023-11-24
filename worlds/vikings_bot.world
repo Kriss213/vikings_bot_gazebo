@@ -2,6 +2,13 @@
 
 <sdf version="1.6">
   <world name="default">
+    <gravity>0 0 -9.8</gravity>
+
+    <atmosphere type="adiabatic" />
+
+    <physics type="ode">
+      <max_step_size>0.001</max_step_size>
+    </physics>
 
     <include>
       <uri>model://sun</uri>
@@ -9,6 +16,114 @@
     <include>
       <uri>model://ground_plane</uri>
     </include>
+
+    <include>
+      <uri>model://oak_tree</uri>
+      <pose>10 10 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <!-- <static>false</static> -->
+      <uri>model://postbox</uri>
+      <pose>10 5 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://euro_pallet</uri>
+      <pose>8 8 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://cardboard_box</uri>
+      <pose>6 8 0 0 0 0</pose>
+    </include>
+
+    <!-- <include>
+      <uri>model://nist_maze_wall_120</uri>
+      <pose>0 0 0 0 0 0</pose>
+    </include> -->
+
+    <population name="left_wall">
+      <model name="left_wall">
+        <include>
+          <pose>0.6 -0.6 0 0 0 0</pose>
+          <uri>model://nist_maze_wall_120</uri>
+        </include>
+      </model>
+      <pose>0 4 0 0 0 0</pose>
+      <box>
+        <size>12 0.1 0.1</size>
+      </box>
+      <model_count>10</model_count>
+      <distribution>
+        <type>linear-x</type>
+      </distribution>
+    </population>
+
+    <population name="top_wall">
+      <model name="top_wall">
+        <include>
+          <pose>0.6 -0.6 0 0 0 1.57</pose>
+          <uri>model://nist_maze_wall_120</uri>
+        </include>
+      </model>
+      <pose>6.0 1 0 0 0 0</pose>
+      <box>
+        <size>0.1 9.6 0.1</size>
+      </box>
+      <model_count>8</model_count>
+      <distribution>
+        <type>linear-y</type>
+      </distribution>
+    </population>
+
+    <population name="right_wall">
+      <model name="right_wall">
+        <include>
+          <pose>0.6 -0.6 0 0 0 0</pose>
+          <uri>model://nist_maze_wall_120</uri>
+        </include>
+      </model>
+      <pose>0 -4 0 0 0 0</pose>
+      <box>
+        <size>12 0.1 0.1</size>
+      </box>
+      <model_count>10</model_count>
+      <distribution>
+        <type>linear-x</type>
+      </distribution>
+    </population>
+
+    <population name="bottom_wall">
+      <model name="bottom_wall">
+        <include>
+          <pose>0.6 -0.6 0 0 0 1.57</pose>
+          <uri>model://nist_maze_wall_120</uri>
+        </include>
+      </model>
+      <pose>-6.0 1 0 0 0 0</pose>
+      <box>
+        <size>0.1 9.6 0.1</size>
+      </box>
+      <model_count>8</model_count>
+      <distribution>
+        <type>linear-y</type>
+      </distribution>
+    </population>
+
+    <model name="box1">
+      <include>
+        <uri>model://cardboard_box</uri>
+        <pose>0 3.8 0 0 0 0</pose>
+      </include>
+    </model>
+
+    <model name="box2">
+      <include>
+        <uri>model://cardboard_box</uri>
+        <pose>5.5 3.5 0 0 0 0</pose>
+      </include>
+    </model>
 
   </world>
 </sdf>
