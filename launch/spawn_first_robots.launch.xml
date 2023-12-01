@@ -21,7 +21,7 @@
         <arg name="robot_file" value="vikings_bot.xacro"/>
         <arg name="x_spawn" value="0.0"/>
         <arg name="y_spawn" value="-1.5"/>
-        <arg name="z_spawn" value="0.3"/>
+        <arg name="z_spawn" value="0.2"/>
         <arg name="roll_spawn" value="0.0"/>
         <arg name="pitch_spawn" value="0.0"/>
         <arg name="yaw_spawn" value="0.0"/>
