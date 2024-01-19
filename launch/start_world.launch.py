@@ -48,14 +48,25 @@ def generate_launch_description():
                 'world',
                 default_value=[os.path.join(pkg_vikings_bot_gazebo, 'worlds', 'vikings_bot.world'), ''],
                 description='SDF world file')
-
-    # Gazebo launch
-    gazebo = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            os.path.join(pkg_gazebo_ros, 'launch', 'gazebo.launch.py'),
-        )
-    )
     
+
+    # To increase update rate
+    gazebo_params_file = os.path.join(pkg_vikings_bot_gazebo, "config", "gazebo_params.yaml")
+
+    gazebo = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([
+            os.path.join(pkg_gazebo_ros, 'launch', 'gazebo.launch.py')
+        ]),
+        # launch_arguments={
+        #     "extra_gazebo_args": "--ros-args --param-file " + gazebo_params_file
+        # }.items()
+    )
+    # gazebo = IncludeLaunchDescription(
+    #             PythonLaunchDescriptionSource([os.path.join(
+    #                 get_package_share_directory('gazebo_ros'), 'launch', 'gazebo.launch.py')]),
+    #                 launch_arguments={'extra_gazebo_args': '--ros-args --params-file ' + gazebo_params_file}.items()
+    # )
+
 
     return LaunchDescription([
         gazebo_world_arg,
