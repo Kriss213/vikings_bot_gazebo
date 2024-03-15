@@ -2,6 +2,7 @@
 <launch>
 
     <arg name="vikings_bot_name" default="vikings_bot"/>
+    <arg name="use_sim" default="true"/>
     <arg name="robot_file" default="vikings_bot.xacro"/>
 
     <arg name="x_spawn" default="0.0"/>
@@ -13,6 +14,7 @@
 
     <include file="$(find-pkg-share vikings_bot_description)/launch/robot_state_publisher.launch.py">
         <arg name="vikings_bot_name" value="$(var vikings_bot_name)"/>
+        <arg name="use_sim" value="$(var use_sim)"/>
         <arg name="robot_file" value="$(var robot_file)"/>
     </include>
 
