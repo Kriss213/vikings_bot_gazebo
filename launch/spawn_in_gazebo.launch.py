@@ -56,7 +56,7 @@ def launch_setup(context, *arg, **args):
 def generate_launch_description():
     # Declare launch arguments
     vikings_bot_name_arg = DeclareLaunchArgument("vikings_bot_name",
-                    default_value="vikings_bot",
+                    default_value="vikings_bot_1",
                     description="Robot name to make it unique")
     x_spawn_arg = DeclareLaunchArgument('x_spawn', default_value='0.0')
     y_spawn_arg = DeclareLaunchArgument('y_spawn', default_value='0.0')
