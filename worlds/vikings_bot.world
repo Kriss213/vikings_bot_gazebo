@@ -38,11 +38,6 @@
       <pose>6 8 0 0 0 0</pose>
     </include>
 
-    <!-- <include>
-      <uri>model://nist_maze_wall_120</uri>
-      <pose>0 0 0 0 0 0</pose>
-    </include> -->
-
     <population name="left_wall">
       <model name="left_wall">
         <include>
@@ -122,6 +117,14 @@
       <include>
         <uri>model://cardboard_box</uri>
         <pose>5.5 3.5 0 0 0 0</pose>
+      </include>
+    </model>
+
+    <model name="vikings_bot_charger">
+      <include>
+        <static>1</static>
+        <uri>model://vikings_bot_charger</uri>
+        <pose>5.8 0 0 0 0 0</pose>
       </include>
     </model>
 

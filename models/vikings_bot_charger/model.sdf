@@ -1,0 +1,230 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="vikings_bot_charger">
+    <static>true</static>
+
+      <link name="base_link">
+        <pose>0 0 0 0 0 0</pose>
+      </link>
+
+      <link name="back_link">
+        <pose relative_to="back_link_joint">0 0 0 0 0 0</pose>
+        <collision name="back_link_collision">
+          <geometry>
+              <box>
+                  <size>0.01 0.7 0.13</size>
+              </box>
+          </geometry>
+        </collision>
+
+        <visual name="back_link_visual">
+          <geometry>
+              <box>
+                  <size>0.01 0.7 0.13</size>
+              </box>
+          </geometry>
+          <material>
+            <ambient>0.0 0.0 1.0 1</ambient>
+            <diffuse>0.1 0.1 0.2 1</diffuse>
+            <specular>0 0 0 0</specular>
+            <emissive>0 0 0 1</emissive>
+          </material>
+        </visual>
+      </link>
+
+      <joint name="back_link_joint" type="fixed">
+        <parent>base_link</parent>
+        <child>back_link</child>
+        <pose relative_to="base_link">0 0 0.075 0 0 0</pose>
+      </joint>
+
+      <link name="left_side">
+        <pose relative_to="left_side_joint">0 0 0 0 0 0</pose>
+        <collision name="left_side_collision">
+          <geometry>
+              <box>
+                  <size>0.05 0.01 0.13</size>
+              </box>
+          </geometry>
+        </collision>
+
+        <visual name="left_side_visual">
+          <geometry>
+              <box>
+                  <size>0.05 0.01 0.13</size>
+              </box>
+          </geometry>
+          <material>
+            <ambient>0.0 0.0 1.0 1</ambient>
+            <diffuse>0.1 0.1 0.2 1</diffuse>
+            <specular>0 0 0 0</specular>
+            <emissive>0 0 0 1</emissive>
+          </material>
+        </visual>
+      </link>
+
+      <joint name="left_side_joint" type="fixed">
+        <pose relative_to="back_link">-0.025 0.35 0 0 0 0</pose>
+        <parent>back_link</parent>
+        <child>left_side</child>
+      </joint>
+
+      <link name="right_side">
+        <pose relative_to="right_side_joint">0 0 0 0 0 0</pose>
+        <collision name="right_side_collision">
+          <geometry>
+              <box>
+                  <size>0.05 0.01 0.13</size>
+              </box>
+          </geometry>
+        </collision>
+
+        <visual name="right_side_visual">
+          <geometry>
+              <box>
+                  <size>0.05 0.01 0.13</size>
+              </box>
+          </geometry>
+          <material>
+            <ambient>0.0 0.0 1.0 1</ambient>
+            <diffuse>0.1 0.1 0.2 1</diffuse>
+            <specular>0 0 0 0</specular>
+            <emissive>0 0 0 1</emissive>
+          </material>
+        </visual>
+      </link>
+
+      <joint name="right_side_joint" type="fixed">
+        <pose relative_to="back_link">-0.025 -0.35 0 0 0 0</pose>
+        <parent>back_link</parent>
+        <child>left_side</child>
+      </joint>
+
+      <link name="left_side_angle">
+        <pose relative_to="left_side_angle_joint">0 0 0 0 0 0</pose>
+        <collision name="left_side_collision">
+          <geometry>
+              <box>
+                  <size>0.05 0.01 0.13</size>
+              </box>
+          </geometry>
+        </collision>
+
+        <visual name="left_side_visual">
+          <geometry>
+              <box>
+                  <size>0.10 0.01 0.13</size>
+              </box>
+          </geometry>
+          <material>
+            <ambient>0.0 0.0 1.0 1</ambient>
+            <diffuse>0.1 0.1 0.2 1</diffuse>
+            <specular>0 0 0 0</specular>
+            <emissive>0 0 0 1</emissive>
+          </material>
+        </visual>
+      </link>
+
+      <joint name="left_side_angle_joint" type="fixed">
+        <pose relative_to="left_side">-0.06 0.035 0 0 0 -0.785</pose>
+        <parent>back_link</parent>
+        <child>left_side_angle</child>
+      </joint>
+
+      <link name="right_side_angle">
+        <pose relative_to="right_side_angle_joint">0 0 0 0 0 0</pose>
+        <collision name="right_side_collision">
+          <geometry>
+              <box>
+                  <size>0.05 0.01 0.13</size>
+              </box>
+          </geometry>
+        </collision>
+
+        <visual name="right_side_visual">
+          <geometry>
+              <box>
+                  <size>0.10 0.01 0.13</size>
+              </box>
+          </geometry>
+          <material>
+            <ambient>0.0 0.0 1.0 1</ambient>
+            <diffuse>0.1 0.1 0.2 1</diffuse>
+            <specular>0 0 0 0</specular>
+            <emissive>0 0 0 1</emissive>
+          </material>
+        </visual>
+      </link>
+
+      <joint name="right_side_angle_joint" type="fixed">
+        <pose relative_to="right_side">-0.06 -0.035 0 0 0 0.785</pose>
+        <parent>back_link</parent>
+        <child>left_side_angle</child>
+      </joint>
+
+      <link name="left_side_reflector">
+        <pose relative_to="left_side_reflector_joint">0 0 0.1 0 0 0</pose>
+        <collision name="left_side_collision">
+          <geometry>
+              <box>
+                  <size>0.07 0.01 0.07</size>
+              </box>
+          </geometry>
+          <laser_retro>550</laser_retro>
+        </collision>
+
+        <visual name="left_side_visual">
+          <geometry>
+              <box>
+                  <size>0.07 0.01 0.07</size>
+              </box>
+          </geometry>
+          <material>
+            <ambient>0.9 0.9 0.9 1</ambient>
+            <diffuse>0.1 0.1 0.1 1</diffuse>
+            <specular>0.7 0.7 0.7 0</specular>
+            <emissive>0.9 0.9 0.9 1</emissive>
+          </material>
+        </visual>
+      </link>
+
+      <joint name="left_side_reflector_joint" type="fixed">
+        <pose relative_to="left_side_angle_joint">0 -0.01 0 0 0 0</pose>
+        <parent>left_side_angle_joint</parent>
+        <child>left_side_reflector</child>
+      </joint>
+
+      <link name="right_side_reflector">
+        <pose relative_to="right_side_reflector_joint">0 0 0.1 0 0 0</pose>
+        <collision name="right_side_collision">
+          <geometry>
+              <box>
+                  <size>0.07 0.01 0.07</size>
+              </box>
+          </geometry>
+          <laser_retro>550</laser_retro>
+        </collision>
+
+        <visual name="right_side_visual">
+          <geometry>
+              <box>
+                  <size>0.07 0.01 0.07</size>
+              </box>
+          </geometry>
+          <material>
+            <ambient>0.9 0.9 0.9 1</ambient>
+            <diffuse>0.1 0.1 0.1 1</diffuse>
+            <specular>0.7 0.7 0.7 0</specular>
+            <emissive>0.9 0.9 0.9 1</emissive>
+          </material>
+        </visual>
+      </link>
+
+      <joint name="right_side_reflector_joint" type="fixed">
+        <pose relative_to="right_side_angle_joint">0 -0.01 0 0 0 0</pose>
+        <parent>left_side_angle_joint</parent>
+        <child>right_side_reflector</child>
+      </joint>
+
+  </model>
+</sdf>
