@@ -12,6 +12,7 @@
   <depend>rclpy</depend>
   <depend>gazebo_ros2_control</depend>
   <depend>vikings_bot_description</depend>
+  <depend>gazebo_ros_pkgs</depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
