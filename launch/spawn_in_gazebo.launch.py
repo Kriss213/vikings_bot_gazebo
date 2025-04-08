@@ -29,14 +29,14 @@ def launch_setup(context, *arg, **args):
     position = [x_spawn, y_spawn, z_spawn]
     # [Roll, Pitch, Yaw]
     orientation = [roll_spawn, pitch_spawn, yaw_spawn]
-    robot_description_topic_name = vikings_bot_name +"/robot_description"
-    robot_state_publisher_name= vikings_bot_name + "_robot_state_publisher"
+    robot_state_publisher_name = "robot_state_publisher"
     
     # Spawn ROBOT Set Gazebo
     spawn_robot = Node(
         package='gazebo_ros',
         executable='spawn_entity.py',
         name=robot_state_publisher_name,
+        namespace=vikings_bot_name,
         output='screen',
         arguments=['-entity',
                    vikings_bot_name,
@@ -44,7 +44,7 @@ def launch_setup(context, *arg, **args):
                                                      ), '-z', str(position[2]),
                    '-R', str(orientation[0]), '-P', str(orientation[1]
                                                         ), '-Y', str(orientation[2]),
-                   '-topic', robot_description_topic_name
+                   '-topic', 'robot_description'
                    ]
     )
 

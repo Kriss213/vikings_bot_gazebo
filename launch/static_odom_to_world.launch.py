@@ -7,18 +7,19 @@ from launch.actions import OpaqueFunction
 
 def launch_setup(context, *args, **kwargs):
 
-    entity_name = LaunchConfiguration('vikings_bot_name').perform(context)
-    odom_frame_name = entity_name + "/odom"
-    name_node = entity_name + "_static_transform_publisher"
+    namespace = LaunchConfiguration('vikings_bot_name').perform(context)
+    #odom_frame_name = namespace + "/odom"
+ 
 
     # Spawn ROBOT Set Gazebo
     st_pub = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
-        name=name_node,
+        namespace=namespace,
+        name="static_transform_publisher",
         output='screen',
         emulate_tty=True,
-        arguments=['0', '0', '0', '0', '0', '0', 'world', odom_frame_name]
+        arguments=['0', '0', '0', '0', '0', '0', 'world', f"{namespace}/odom"]
     )
 
 

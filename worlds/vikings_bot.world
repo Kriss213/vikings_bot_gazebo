@@ -10,6 +10,10 @@
       <max_step_size>0.001</max_step_size>
     </physics>
 
+    <scene>
+      <shadows>false</shadows>
+    </scene>
+
     <include>
       <uri>model://sun</uri>
     </include>

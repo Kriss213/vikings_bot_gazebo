@@ -51,7 +51,7 @@ def generate_launch_description():
     
 
     # To increase update rate
-    gazebo_params_file = os.path.join(pkg_vikings_bot_gazebo, "config", "gazebo_params.yaml")
+    #gazebo_params_file = os.path.join(pkg_vikings_bot_gazebo, "config", "gazebo_params.yaml")
 
     gazebo = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
